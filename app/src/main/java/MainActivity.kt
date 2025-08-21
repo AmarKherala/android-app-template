@@ -1,13 +1,20 @@
-package __PACKAGE_NAME__
 
 import android.os.Bundle
-import com.highcapable.betterandroid.ui.component.activity.AppBindingActivity
-import __PACKAGE_NAME__.databinding.ActivityMainBinding
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.choicegame.databinding.ActivityMainBinding
 
-class MainActivity : AppBindingActivity<ActivityMainBinding>() {
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // TODO Start your coding here.
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnClick.setOnClickListener {
+            Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT).show()
+        }
     }
 }
